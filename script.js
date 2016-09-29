@@ -5,24 +5,20 @@ var padding = {top: 40, right: 40, bottom: 40, left:40};
 var dataset;
 //Set up stack method
 var stack = d3.layout.stack();
-
 d3.json("mperday.json",function(json){
 	dataset = json;
-
 	//Data, stacked
 	stack(dataset);
-
 	var color_hash = {
-		  0 : ["Invite","#1f77b4"],
-			1 : ["Accept","#2ca02c"],
-			2 : ["Decline","#ff7f0e"]
+		0 : ["Invite","#357ebd"],
+		1 : ["Accept","#2ca02c"],
+		2 : ["Decline","#de3b0f"]
 	};
-
 	//Set up scales
 	var xScale = d3.time.scale()
 		.domain([new Date(dataset[0][0].time),d3.time.day.offset(new Date(dataset[0][dataset[0].length-1].time),8)])
 		.rangeRound([0, w-padding.left-padding.right]);
-
+	
 	var yScale = d3.scale.linear()
 		.domain([0,				
 			d3.max(dataset, function(d) {
@@ -42,7 +38,7 @@ d3.json("mperday.json",function(json){
 		.scale(yScale)
 		.orient("left")
 		.ticks(10);
-
+	
 	//Easy colors accessible via a 10-step ordinal scale
 	var colors = d3.scale.category10();
 
@@ -61,7 +57,7 @@ d3.json("mperday.json",function(json){
 		.attr("transform","translate("+ padding.left + "," + (h - padding.bottom) +")")
 		.style("fill", function(d, i) {
 			return color_hash[dataset.indexOf(d)][1];
-		});
+	});
 
 	// Add a rect for each data value
 	var rects = groups.selectAll("rect")
@@ -73,20 +69,20 @@ d3.json("mperday.json",function(json){
 
 
 	rects.transition()
-	  .duration(function(d,i){
-	   	return 500 * i;
-	   })
-	   .ease("linear")
-	   .attr("x", function(d) {
-				return xScale(new Date(d.time));
-			})
+		.duration(function(d,i){
+	    return 500 * i;
+	  })
+	  .ease("linear")
+	  .attr("x", function(d) {
+			return xScale(new Date(d.time));
+		})
 		.attr("y", function(d) {
 			return -(- yScale(d.y0) - yScale(d.y) + (h - padding.top - padding.bottom)*2);
 		})
 		.attr("height", function(d) {
 			return -yScale(d.y) + (h - padding.top - padding.bottom);
 		})
-		.attr("width", 15)
+		.attr("width", 25)
 		.style("fill-opacity",1);
 
 		svg.append("g")
@@ -103,23 +99,23 @@ d3.json("mperday.json",function(json){
 		// adding legend
 
 		var legend = svg.append("g")
-						.attr("class","legend")
-						.attr("x", w - padding.right - 65)
-						.attr("y", 25)
-						.attr("height", 100)
-						.attr("width",100);
+			.attr("class","legend")
+			.attr("x", w - padding.right - 65)
+			.attr("y", 25)
+			.attr("height", 100)
+			.attr("width",100);
 
 		legend.selectAll("g").data(dataset)
-			  .enter()
-			  .append('g')
-			  .each(function(d,i){
-			  	var g = d3.select(this);
-			  	g.append("rect")
-			  		.attr("x", w - padding.right - 65)
-			  		.attr("y", i*25 + 10)
-			  		.attr("width", 10)
-			  		.attr("height",10)
-			  		.style("fill",color_hash[String(i)][1]);
+			.enter()
+			.append('g')
+			.each(function(d,i){
+			  var g = d3.select(this);
+			  g.append("rect")
+			  	.attr("x", w - padding.right - 65)
+			  	.attr("y", i*25 + 10)
+			  	.attr("width", 10)
+			  	.attr("height",10)
+			  	.style("fill",color_hash[String(i)][1]);
 
 			  	g.append("text")
 			  	 .attr("x", w - padding.right - 50)
@@ -128,7 +124,7 @@ d3.json("mperday.json",function(json){
 			  	 .attr("width",100)
 			  	 .style("fill",color_hash[String(i)][1])
 			  	 .text(color_hash[String(i)][0]);
-			  });
+				});
 
 		svg.append("text")
 		.attr("transform","rotate(-90)")
@@ -138,11 +134,11 @@ d3.json("mperday.json",function(json){
 		.text("Number of Messages");
 
 	svg.append("text")
-	   .attr("class","xtext")
-	   .attr("x",w/2 - padding.left)
-	   .attr("y",h - 5)
-	   .attr("text-anchor","middle")
-	   .text("Days");
+		.attr("class","xtext")
+	  .attr("x",w/2 - padding.left)
+	  .attr("y",h - 5)
+	  .attr("text-anchor","middle")
+	  .text("Days");
 
 	svg.append("text")
     .attr("class","title")
@@ -172,10 +168,8 @@ d3.json("mperday.json",function(json){
 			}
 
 			d3.json(str,function(json){
-
 				dataset = json;
 				stack(dataset);
-
 				console.log(dataset);
 
 				xScale.domain([new Date(0, 0, 0,dataset[0][0].time,0, 0, 0),new Date(0, 0, 0,dataset[0][dataset[0].length-1].time,0, 0, 0)])
@@ -191,32 +185,32 @@ d3.json("mperday.json",function(json){
 							.range([h-padding.bottom-padding.top,0]);
 
 				xAxis.scale(xScale)
-				     .ticks(d3.time.hour,2)
-				     .tickFormat(d3.time.format("%H"));
+					.ticks(d3.time.hour,2)
+				  .tickFormat(d3.time.format("%H"));
 
 				yAxis.scale(yScale)
-				     .orient("left")
-				     .ticks(10);
+					.orient("left")
+				  .ticks(10);
 
 				 groups = svg.selectAll(".rgroups")
-                    .data(dataset);
+         	.data(dataset);
 
-                    groups.enter().append("g")
-                    .attr("class","rgroups")
-                    .attr("transform","translate("+ padding.left + "," + (h - padding.bottom) +")")
-                    .style("fill",function(d,i){
-                        return color(i);
-                    });
+          groups.enter().append("g")
+            .attr("class","rgroups")
+            .attr("transform","translate("+ padding.left + "," + (h - padding.bottom) +")")
+            .style("fill",function(d,i){
+                return color(i);
+             });
 
 
-                    rect = groups.selectAll("rect")
-                    .data(function(d){return d;});
+            rect = groups.selectAll("rect")
+            	.data(function(d){return d;});
 
-                    rect.enter()
-                      .append("rect")
-                      .attr("x",w)
-                      .attr("width",1)
-                      .style("fill-opacity",1e-6);
+             	rect.enter()
+               .append("rect")
+               .attr("x",w)
+               .attr("width",1)
+               .style("fill-opacity",1e-6);
 
                 rect.transition()
                     .duration(1000)
@@ -230,22 +224,22 @@ d3.json("mperday.json",function(json){
                     .attr("height",function(d){
                         return -yScale(d.y) + (h - padding.top - padding.bottom);
                     })
-                    .attr("width",15)
+                    .attr("width",25)
                     .style("fill-opacity",1);
 
-                rect.exit()
-			       .transition()
-			       .duration(1000)
-			       .ease("circle")
-			       .attr("x",w)
-			       .remove();
+               	rect.exit()
+			       		.transition()
+			       		.duration(1000)
+			       		.ease("circle")
+			       		.attr("x",w)
+			       		.remove();
 
-                groups.exit()
-			       .transition()
-			       .duration(1000)
-			       .ease("circle")
-			       .attr("x",w)
-			       .remove();
+             		groups.exit()
+			       		.transition()
+			       		.duration(1000)
+			       		.ease("circle")
+			       		.attr("x",w)
+			       		.remove();
 
 
 				svg.select(".x.axis")
