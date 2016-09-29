@@ -1,6 +1,4 @@
-
 // developed by Leonel Oliveira
-
 var w = 800;                        //width
 var h = 600;                        //height
 var padding = {top: 40, right: 40, bottom: 40, left:40};
@@ -15,12 +13,10 @@ d3.json("mperday.json",function(json){
 	stack(dataset);
 
 	var color_hash = {
-		    0 : ["Invite","#1f77b4"],
+		  0 : ["Invite","#1f77b4"],
 			1 : ["Accept","#2ca02c"],
 			2 : ["Decline","#ff7f0e"]
-
 	};
-
 
 	//Set up scales
 	var xScale = d3.time.scale()
@@ -38,25 +34,23 @@ d3.json("mperday.json",function(json){
 		.range([h-padding.bottom-padding.top,0]);
 
 	var xAxis = d3.svg.axis()
-				   .scale(xScale)
-				   .orient("bottom")
-				   .ticks(d3.time.days,1);
+		.scale(xScale)
+		.orient("bottom")
+		.ticks(d3.time.days,1);
 
 	var yAxis = d3.svg.axis()
-				   .scale(yScale)
-				   .orient("left")
-				   .ticks(10);
-
-
+		.scale(yScale)
+		.orient("left")
+		.ticks(10);
 
 	//Easy colors accessible via a 10-step ordinal scale
 	var colors = d3.scale.category10();
 
 	//Create SVG element
 	var svg = d3.select("#mbars")
-				.append("svg")
-				.attr("width", w)
-				.attr("height", h);
+		.append("svg")
+		.attr("width", w)
+		.attr("height", h);
 
 	// Add a group for each row of data
 	var groups = svg.selectAll("g")
@@ -79,13 +73,13 @@ d3.json("mperday.json",function(json){
 
 
 	rects.transition()
-	     .duration(function(d,i){
-	    	 return 500 * i;
-	     })
-	     .ease("linear")
-	    .attr("x", function(d) {
-			return xScale(new Date(d.time));
-		})
+	  .duration(function(d,i){
+	   	return 500 * i;
+	   })
+	   .ease("linear")
+	   .attr("x", function(d) {
+				return xScale(new Date(d.time));
+			})
 		.attr("y", function(d) {
 			return -(- yScale(d.y0) - yScale(d.y) + (h - padding.top - padding.bottom)*2);
 		})
