@@ -1,4 +1,4 @@
-# d3js-barcharts
+# d3js-bar-charts
 
 Stacked bar-charts on time scale.
 
