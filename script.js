@@ -67,7 +67,6 @@ d3.json("mperday.json",function(json){
 		.attr("width", 2)
 		.style("fill-opacity",1e-6);
 
-
 	rects.transition()
 		.duration(function(d,i){
 	    return 500 * i;
