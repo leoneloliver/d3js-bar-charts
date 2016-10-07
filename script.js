@@ -1,6 +1,7 @@
-// developed by Leonel Oliveira
-var w = 800;                        //width
-var h = 600;                        //height
+// Leonel Oliveira: leoneloliver@gmail.com
+
+var w = 800; //width
+var h = 600; //height
 var padding = {top: 40, right: 40, bottom: 40, left:40};
 var dataset;
 //Set up stack method
