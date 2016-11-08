@@ -8,34 +8,34 @@
 	font-size: 11px;
 }
 .dot {
-  stroke: #000;
+  	stroke: #000;
 }
 .legend {
-    padding: 5px;
-    font: 10px sans-serif;
-    background: yellow;
-    box-shadow: 2px 2px 1px #888;
+    	padding: 5px;
+    	font: 10px sans-serif;
+    	background: yellow;
+    	box-shadow: 2px 2px 1px #888;
 }
 
 
 img.img-div {
-    height: 100px;
-    width: 100px;
-    overflow: hidden;
-    border-radius: 50%;
-    margin: 24px;
-		border-left: 6px solid #2ca02c;
-    border-top: 6px solid #de3b0f;
-    border-right: 6px solid #ffec02;
-    border-bottom: 6px solid #357ebd;
+   	height: 100px;
+    	width: 100px;
+    	overflow: hidden;
+    	border-radius: 50%;
+    	margin: 24px;
+	border-left: 6px solid #2ca02c;
+    	border-top: 6px solid #de3b0f;
+    	border-right: 6px solid #ffec02;
+    	border-bottom: 6px solid #357ebd;
 }
 .btn-group {
-    margin-top: 25px;
-    margin-bottom: 38px;
+    	margin-top: 25px;
+    	margin-bottom: 38px;
 }
 .center{text-align: center;}
 .desc {
-    clear: both;
+    	clear: both;
 }
 .border-left{
 	border-left: 1px solid #efefef;
