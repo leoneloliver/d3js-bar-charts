@@ -1,5 +1,4 @@
 // Leonel Oliveira: leoneloliver@gmail.com
-
 var w = 800; //width
 var h = 600; //height
 var padding = {top: 40, right: 40, bottom: 40, left:40};
@@ -264,3 +263,4 @@ d3.json("mperday.json",function(json){
 
 
 });
+
