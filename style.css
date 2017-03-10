@@ -1,6 +1,24 @@
+.header-c{
+    -webkit-box-shadow: 0 10px 21px 0 rgba(0,0,0,.3);
+    -moz-box-shadow: 0 10px 21px 0 rgba(0,0,0,.3);
+    box-shadow: 0 10px 21px 0 rgba(0,0,0,.3);
+    background-color: #0f101c;
+    height: 43px;
+}
+.footer-c{
+    clear: both;
+}
+body{
+    background-color: #1C1D33;
+    font-family: 'Open Sans',sans-serif;
+    color: #8A8BAF;
+}
+.col-md-9.cont-result {
+    padding: 20px;
+}
 .axis path,.axis line {
 	fill: none;
-	stroke: black;
+	stroke: #8a8baf;
 	shape-rendering: crispEdges;
 }
 .axis text {
@@ -8,35 +26,103 @@
 	font-size: 11px;
 }
 .dot {
-  	stroke: #000;
+  stroke: #8a8baf;
 }
 .legend {
-    	padding: 5px;
-    	font: 10px sans-serif;
-    	background: yellow;
-    	box-shadow: 2px 2px 1px #888;
+    padding: 5px;
+    font: 12px sans-serif;
+    background: yellow;
+    box-shadow: 2px 2px 1px #888;
 }
 
 
 img.img-div {
-   	height: 100px;
-    	width: 100px;
-    	overflow: hidden;
-    	border-radius: 50%;
-    	margin: 24px;
-	border-left: 6px solid #2ca02c;
-    	border-top: 6px solid #de3b0f;
-    	border-right: 6px solid #ffec02;
-    	border-bottom: 6px solid #357ebd;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 24px;
+	border-left: 6px solid #E8E81B;
+    border-top: 6px solid #D32167;
+    border-right: 6px solid #50E3C2;
+    border-bottom: 6px solid #1CC0F8;
 }
 .btn-group {
-    	margin-top: 25px;
-    	margin-bottom: 38px;
+    margin-top: 25px;
+    margin-bottom: 38px;
 }
 .center{text-align: center;}
 .desc {
-    	clear: both;
+    clear: both;
 }
 .border-left{
-	border-left: 1px solid #efefef;
+	border: 1px solid #242A47;
+    border-radius: 5px;
+    padding: 12px;
+    box-sizing: border-box;
+    background: #242A47;
+    max-width: 820px;
+}
+
+@-webkit-keyframes play {
+    0%   {top: -5px;}
+    25%  {top: 0px;}
+    50%  {top: 5px}
+    75%  {top: 0px}
+    100% {top: -5px;}
+  
+}
+
+@-moz-keyframes play {
+    0%   {top: -5px;}
+    25%  {top: 0px;}
+    50%  {top: 5px}
+    75%  {top: 0px}
+    100% {top: -5px;}
+}
+
+@-ms-keyframes play {
+    0%   {top: -5px;}
+    25%  {top: 0px;}
+    50%  {top: 5px}
+    75%  {top: 0px}
+    100% {top: -5px;}
+}
+
+@-o-keyframes play {
+    0%   {top: -5px;}
+    25%  {top: 0px;}
+    50%  {top: 5px}
+    75%  {top: 0px}
+    100% {top: -5px;}
+}
+
+@keyframes play {
+    0%   {top: -5px;}
+    25%  {top: 0px;}
+    50%  {top: 5px}
+    75%  {top: 0px}
+    100% {top: -5px;}
+}
+
+
+.heart{
+    -webkit-animation: play .9s steps(10) infinite;
+       -moz-animation: play .9s steps(10) infinite;
+        -ms-animation: play .9s steps(10) infinite;
+         -o-animation: play .9s steps(10) infinite;
+            animation: play .9s steps(10) infinite;
+}
+.heart{
+    width:50px;
+    color: #D32167;
+
+}
+p#xr3{
+    text-align: center;
+    margin-top: 5px;
+}
+.heart {
+    margin-top: -5px;
+    position :relative;
 }
