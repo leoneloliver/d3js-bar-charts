@@ -1,24 +1,32 @@
-// Leonel Oliveira: leoneloliver@gmail.com
-var w = 800; //width
-var h = 600; //height
+
+// developed by Leonel Oliveira
+
+var w = 800;                        //width
+var h = 500;                        //height
 var padding = {top: 40, right: 40, bottom: 40, left:40};
 var dataset;
 //Set up stack method
 var stack = d3.layout.stack();
+
 d3.json("mperday.json",function(json){
 	dataset = json;
+
 	//Data, stacked
 	stack(dataset);
+
 	var color_hash = {
-		0 : ["Invite","#357ebd"],
-		1 : ["Accept","#2ca02c"],
-		2 : ["Decline","#de3b0f"]
+		0 : ["Invite","#1CC0F8"],
+		1 : ["Accept","#E8E81B"],
+		2 : ["Decline","#D32167"]
 	};
+
+
+
 	//Set up scales
 	var xScale = d3.time.scale()
 		.domain([new Date(dataset[0][0].time),d3.time.day.offset(new Date(dataset[0][dataset[0].length-1].time),8)])
 		.rangeRound([0, w-padding.left-padding.right]);
-	
+
 	var yScale = d3.scale.linear()
 		.domain([0,				
 			d3.max(dataset, function(d) {
@@ -66,6 +74,7 @@ d3.json("mperday.json",function(json){
 		.append("rect")
 		.attr("width", 2)
 		.style("fill-opacity",1e-6);
+
 
 	rects.transition()
 		.duration(function(d,i){
@@ -130,13 +139,15 @@ d3.json("mperday.json",function(json){
 		.attr("y", 0 - 5)
 		.attr("x", 0-(h/2))
 		.attr("dy","1em")
+		.style("fill","#8A8BAF")
 		.text("Number of Messages");
 
 	svg.append("text")
-		.attr("class","xtext")
+	  .attr("class","xtext")
 	  .attr("x",w/2 - padding.left)
 	  .attr("y",h - 5)
 	  .attr("text-anchor","middle")
+	  .style("fill","#8A8BAF")
 	  .text("Days");
 
 	svg.append("text")
@@ -145,7 +156,9 @@ d3.json("mperday.json",function(json){
     .attr("y", 20)
     .attr("text-anchor", "middle")  
     .style("font-size", "16px") 
-    .style("text-decoration", "underline")  
+    .style("color","#fff")
+    .style("text-decoration", "underline") 
+    .style("fill","#8A8BAF") 
     .text("Number of messages per day.");
 
 	//On click, update with new data			
@@ -240,6 +253,7 @@ d3.json("mperday.json",function(json){
 			       		.attr("x",w)
 			       		.remove();
 
+			   
 
 				svg.select(".x.axis")
 				   .transition()
@@ -256,11 +270,19 @@ d3.json("mperday.json",function(json){
 				svg.select(".xtext")
 				   .text("Hours");
 
+				svg.select(".xtext")
+				   .style("fill","#8A8BAF");
+
 				svg.select(".title")
-		        .text("Number of messages per hour on " + date + ".");
+				.style("fill","#8A8BAF");
+
+
+				svg.select(".title")
+				.text("Number of messages per hour on " + date + ".");
+
+				
 			});			
 		});
 
 
 });
-
