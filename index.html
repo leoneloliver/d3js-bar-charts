@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <!-- 
+
  _                           _   _____ _ _           _           
 | |                         | | |  _  | (_)         (_)          
 | |     ___  ___  _ __   ___| | | | | | |___   _____ _ _ __ __ _ 
@@ -8,7 +10,8 @@
 \_____/\___|\___/|_| |_|\___|_|  \___/|_|_| \_/ \___|_|_|  \__,_|
                                                                  
 Front-end Developer
-leoneloliver@gmail.com
+Hire me at leoneloliver@gmail.com 
+
 -->
 <html lang="en">
 	<head>
@@ -21,6 +24,7 @@ leoneloliver@gmail.com
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
+		<div class="header-c"></div>
 		<div>
 			<div class="col-md-3">
 				<div>
@@ -35,21 +39,27 @@ leoneloliver@gmail.com
 					<a href="https://github.com/leoneloliver/d3js-bar-charts" target="_blank"><i class="glyphicon glyphicon-edit"></i>&nbsp;Fork it on github</a>
 				</div>
 			</div>
-			<div class="col-md-9 border-left">
-				<div class="btn-group">
-					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-						 Messages per hour <span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu" role="menu">
-						<li><a class="m" value="2016-02-19" href="#">2016-02-19</a></li>
-						<li><a class="m" value="2016-02-20" href="#">2016-02-20</a></li>
-						<li><a class="m" value="2016-02-21" href="#">2016-02-21</a></li>
-						<li><a class="m" value="2016-02-22" href="#">2016-02-22</a></li>
-						<li><a class="m" value="2016-02-23" href="#">2016-02-23</a></li>
-					</ul>
+			<div class="col-md-9 cont-result">
+				<div class="border-left">
+					<div class="btn-group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+							 Messages per hour <span class="caret"></span>
+						</button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a class="m" value="2016-02-19" href="#">2016-02-19</a></li>
+								<li><a class="m" value="2016-02-20" href="#">2016-02-20</a></li>
+								<li><a class="m" value="2016-02-21" href="#">2016-02-21</a></li>
+								<li><a class="m" value="2016-02-22" href="#">2016-02-22</a></li>
+								<li><a class="m" value="2016-02-23" href="#">2016-02-23</a></li>
+							</ul>
+					</div>
+					<div id="mbars"></div>
 				</div>
-				<div id="mbars"></div>
-			</div>	
+			</div>
+			
+	    </div>
+	    <div class="footer-c">
+	    	<p id="xr3">Made with <i class="heart glyphicon glyphicon-heart"></i> by Leonel</p>
 	    </div>
 	    <script type="text/javascript" src="script.js"></script>
 	</body>
