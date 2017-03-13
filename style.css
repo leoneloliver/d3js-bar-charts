@@ -114,9 +114,7 @@ img.img-div {
             animation: play .9s steps(10) infinite;
 }
 .heart{
-    width:50px;
     color: #D32167;
-
 }
 p#xr3{
     text-align: center;
